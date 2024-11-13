@@ -6,16 +6,22 @@ import { useUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
 import React, {useContext, useEffect, useState } from 'react'
 import { HISTORY } from '../history/page';
-import { TotalUsageContext } from '@/app/context/TotalUsageContext';
+import { TotalUsageContext } from '@/app/(context)/TotalUsageContext';
+import { UpdateCreditContext } from '@/app/(context)/UpdateCredit';
 
 const UsageTrack = () => {
     const {user} = useUser();
     let {totalUsage , setTotalUsage} = useContext(TotalUsageContext)
 
-
+    const {UpdateCredit , setUpdateCredit} = useContext(UpdateCreditContext);
     useEffect(() => {
        user && GetData();
     },[user])
+
+    useEffect(() => {
+        user && GetData();
+     },[UpdateCredit && user]);
+     
 
     const GetData = async() => {
         {/* @ts-ignore */}

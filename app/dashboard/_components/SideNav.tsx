@@ -5,6 +5,7 @@ import { FileClock, HomeIcon, Settings, WalletCards } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import UsageTrack from './UsageTrack'
+import { UserButton, useUser } from '@clerk/nextjs'
 
 const SideNav = () => {
 
@@ -27,7 +28,7 @@ const SideNav = () => {
         {
             name: 'Setting',
             icon: Settings,
-            path: '/dashboard/setting',
+            path: '/dashboard/settings',
         },
     ]
 
@@ -36,15 +37,18 @@ const SideNav = () => {
         console.log()
     },[])
 
+    const {user} = useUser();
+
   return (
-    <div className='bg-white relative h-screen p-5 shadow-sm border'>
+    <div className='bg-white relative h-screen p-5 shadow-sm border z-1000'>
         <div className='flex justify-center'>
             <Image src = {'/logo.svg'} alt='logo' width={60} height={20} />
         </div>
         <hr className='my-5 border' />
 
-        <div className='mt-3'>
-            {MenuList.map((menu , index) => (
+        
+            {MenuList.map((menu) => (
+                <div key = {menu.name} className='mt-3'>
                 <Link href = {menu.path} ><div className={`flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer
                 ${path == menu.path && `bg-primary text-white`}
                 `}>
@@ -52,11 +56,17 @@ const SideNav = () => {
                     <h2>{menu.name}</h2>
                 </div>
                 </Link>
+                </div>
             ))}
-        </div>
+        
 
         <div className='absolute bottom-10 left-0 w-full'>
             <UsageTrack/>
+        </div>
+
+        <div className='flex gap-3 absolute bottom-6 px-2 w-full items-center'>
+        <UserButton/>
+        <h2>{user?.fullName}</h2>
         </div>
     </div>
   )

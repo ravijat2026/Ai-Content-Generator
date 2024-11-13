@@ -12,8 +12,9 @@ import { db } from '@/utils/db'
 import { AIOutput } from '@/utils/schema'
 import { useUser } from '@clerk/nextjs'
 import moment from 'moment'
-import { TotalUsageContext } from '@/app/context/TotalUsageContext'
+import { TotalUsageContext } from '@/app/(context)/TotalUsageContext'
 import { useRouter } from 'next/navigation'
+import { UpdateCreditContext } from '@/app/(context)/UpdateCredit'
 
 
 interface PROPS{
@@ -36,6 +37,14 @@ const CreateNewContent = (props: PROPS) => {
 
     const {totalUsage , setTotalUsage} = useContext(TotalUsageContext);
 
+    const {UpdateCredit,setUpdateCredit} = useContext(UpdateCreditContext);
+
+    /**
+     * Used to generate content from AI
+     * @param formData 
+     * @returns 
+     */
+
     const generateContent = async (formData:any) => {
 
       if(totalUsage >= 100000){
@@ -54,6 +63,9 @@ const CreateNewContent = (props: PROPS) => {
         setAiOutput(result?.response.text());
         await SaveInDb(formData , selectedTemplate?.slug,result?.response.text())
         setLoading(false);
+
+        setUpdateCredit(Date.now())
+
     }
 
     const SaveInDb = async (formData:any , slug:any,aiOutput:string) => {
