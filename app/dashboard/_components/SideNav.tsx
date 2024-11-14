@@ -7,7 +7,7 @@ import Link from 'next/link'
 import UsageTrack from './UsageTrack'
 import { UserButton, useUser } from '@clerk/nextjs'
 
-const SideNav = () => {
+const SideNav = ({ closeNav }:any) => {
 
     const MenuList = [
         {
@@ -49,7 +49,7 @@ const SideNav = () => {
         
             {MenuList.map((menu) => (
                 <div key = {menu.name} className='mt-3'>
-                <Link href = {menu.path} ><div className={`flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer
+                <Link href = {menu.path} onClick={closeNav} ><div className={`flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer
                 ${path == menu.path && `bg-primary text-white`}
                 `}>
                     <menu.icon/>

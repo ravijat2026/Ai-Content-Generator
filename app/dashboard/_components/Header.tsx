@@ -21,19 +21,20 @@ const Header =  () => {
             <Menu/>
             </button>
         </div>
-        <div className={`${nav? 'flex' : 'hidden'}  bg-white gap-2 items-center p-2 border rounded-md max-w-md`}>
-            <button title='Navbar' onClick={handleClick}>
-            <X/>
-            </button>
-        </div>
           <div className='flex gap-5 items-center'>
             <UserButton/>
             <h2>{user?.fullName}</h2>
         </div>
     </div>
 
-    <div className={`${nav ? 'block' : 'hidden'} ${nav? 'mt-[-85px]' : 'mt-0'} w-64 fixed z-50`}>
-        <SideNav/>
+    <div className={`${nav ? 'block' : 'hidden'} ${nav? 'mt-[-88px]' : 'mt-0'} w-64 fixed z-50 h-screen`}>
+        <div className='relative'>
+        <button title='Navbar' className='absolute top-2 left-[200px] z-50 bg-white gap-2 items-center p-2 border rounded-md max-w-md' onClick={handleClick}>
+            <X size={32}/>
+            </button>
+            <SideNav closeNav={() => setNav(false)} />
+        </div>
+        
     </div>
     </>
   )
