@@ -19,12 +19,12 @@ const layout = ({
       
         <UpdateCreditContext.Provider value={{UpdateCredit , setUpdateCredit}}>
     <div className='bg-slate-100 min-h-screen relative'>
-    <div className='block h-[65px] w-full fixed mt-[-65px]'> <Header/> </div>
-      <div className='md:w-64 hidden md:block fixed mt-2'>
+    <div className='block h-[65px] w-full fixed z-50'> <Header/> </div>
+      <div className='md:w-64 hidden md:block fixed mt-[65px]'>
         <SideNav />
       </div>
 
-      <div className='md:ml-64'>
+      <div className='md:ml-64 absolute z-0'>
       
         {children}
       </div>

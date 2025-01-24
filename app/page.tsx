@@ -34,7 +34,7 @@ export default function Home() {
                 
               </div>
              
-              <div className="h-[450px] w-[1200px] relative">
+              <div className="md:h-[450px] md:w-[800px] h-[160px] w-[420px] relative">
                 <Image
                   alt="bgImage"
                   src={bgImage}

@@ -9,12 +9,12 @@ const billing = () => {
 
   return (
     
-      <div className='mx-auto max-w-3xl px-4 py-8 sm:py-12 mt-[65px]'>
+      <div className='mx-auto max-w-3xl px-4 py-8 sm:py-12 mt-[65px] md:ml-36'>
         <h2 className='text-center font-bold text-3xl my-3'>Upgrade With Monthly Plan</h2>
 
           <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 mt-12'>
 
-            <div className='rounded-2xl py-5 bg-white border border-gray-200 min-h-[420px] shadow-xl'>
+            <div className='md:ml-6 rounded-2xl py-5 bg-white border border-gray-200 min-h-[420px] md:w-96 shadow-xl'>
               <div className='text-center'>
                   <h2 className='font-bold text-[30px] mb-3'>Free</h2>
                   <div className='flex gap-2 items-center justify-center'>
@@ -45,7 +45,7 @@ const billing = () => {
             </div>
 
 
-            <div className='rounded-2xl py-5 bg-white border border-gray-200'>
+            <div className='md:ml-24 rounded-2xl py-5 bg-white border border-gray-200 md:w-96'>
               <div className='text-center'>
                   <h2 className='font-bold text-[30px] mb-3'>Monthly</h2>
                   <div className='flex gap-2 items-center justify-center'>
