@@ -1,4 +1,5 @@
 import { pgTable,serial,varchar,text } from "drizzle-orm/pg-core";
+import paymentLink from "razorpay/dist/types/paymentLink";
 
 export const AIOutput = pgTable('aiOutput',{
     id:serial('id').primaryKey(),
@@ -7,4 +8,13 @@ export const AIOutput = pgTable('aiOutput',{
     templateSlug : varchar('templateSlug').notNull(),
     createdBy : varchar('createdBy').notNull(),
     createdAt : varchar('createdAt')
+})
+
+export const UserSubscription = pgTable('userSubscription',{
+    id:serial('id').primaryKey(),
+    email:varchar('email'),
+    userName:varchar('userName'),
+    paymentId:varchar('paymentId'),
+    joinDate:varchar('joinData')
+
 })

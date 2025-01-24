@@ -40,12 +40,8 @@ const SideNav = ({ closeNav }:any) => {
     const {user} = useUser();
 
   return (
-    <div className='bg-white relative h-screen p-5 shadow-sm border z-1000'>
-        <div className='flex justify-center'>
-            <Image src = {'/logo.svg'} alt='logo' width={60} height={20} />
-        </div>
-        <hr className='my-5 border' />
-
+    <div className='bg-white relative h-screen p-5 shadow-sm border z-1000 mb-[70px]'>
+        
         
             {MenuList.map((menu) => (
                 <div key = {menu.name} className='mt-3'>
@@ -60,11 +56,11 @@ const SideNav = ({ closeNav }:any) => {
             ))}
         
 
-        <div className='absolute bottom-10 left-0 w-full'>
+        <div className='absolute bottom-24 left-0 w-full'>
             <UsageTrack/>
         </div>
 
-        <div className='flex gap-3 absolute bottom-6 px-2 w-full items-center'>
+        <div className='flex gap-3 absolute bottom-20 px-2 w-full items-center'>
         <UserButton/>
         <h2>{user?.fullName}</h2>
         </div>

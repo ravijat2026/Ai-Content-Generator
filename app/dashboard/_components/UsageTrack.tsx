@@ -4,6 +4,7 @@ import { db } from '@/utils/db';
 import { AIOutput } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
+import Link from 'next/link'
 import React, {useContext, useEffect, useState } from 'react'
 import { HISTORY } from '../history/page';
 import { TotalUsageContext } from '@/app/(context)/TotalUsageContext';
@@ -53,7 +54,10 @@ const UsageTrack = () => {
             </div>
             <h2 className='text-sm my-2'>{totalUsage}/10,0000 Credit used</h2>
         </div>
+        <Link href = {'/dashboard/billing'}>
         <Button className='w-full my-3 text-primary' variant={'secondary'}>Upgrade</Button>
+        </Link>
+        
     </div>
   )
 }

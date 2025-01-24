@@ -46,7 +46,7 @@ const History = () => {
 
     return (
         <>
-            <div className='m-5 p-5 border rounded-lg bg-white'>
+            <div className='m-5 p-5 border rounded-lg bg-white mt-[65px]'>
                 <h2 className='font-bold text-3xl'>History</h2>
                 <p className='text-gray-500'>Search Your previously generated AI Content</p>
                 <div className='grid grid-cols-5 md:grid-cols-7 font-bold bg-secondary mt-5 py-3 px-3'>

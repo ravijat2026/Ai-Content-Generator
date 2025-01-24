@@ -1,11 +1,15 @@
+"use client"
 import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
-import React from 'react'
+import React  from 'react'
+
+
 
 const billing = () => {
+
   return (
     
-      <div className='mx-auto max-w-3xl px-4 py-8 sm:py-12'>
+      <div className='mx-auto max-w-3xl px-4 py-8 sm:py-12 mt-[65px]'>
         <h2 className='text-center font-bold text-3xl my-3'>Upgrade With Monthly Plan</h2>
 
           <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-4 mt-12'>
